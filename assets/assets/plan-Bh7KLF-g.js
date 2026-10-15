@@ -1,0 +1,1 @@
+var e={free:{word:`Free`,name:`Workers Free`,tooltip:`Works on the Workers Free plan`},paid:{word:`Paid`,name:`Workers Paid`,tooltip:`Needs the Workers Paid plan`}},t={free:{value:`Free`,tooltip:`Runs on Cloudflare's free Workers plan.`},paid:{value:`Workers Paid`,tooltip:`Needs Cloudflare's Workers Paid plan on your account.`}};export{e as n,t};

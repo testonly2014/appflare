@@ -1,0 +1,1 @@
+import{_r as e}from"./text-f1wxz183ckq7qtl7-DR2rnJ_v.js";import{t}from"./install-link-problem-CalhGqyZ.js";var n=e(),r=()=>(0,n.jsx)(t,{kind:`repository`});export{r as component};

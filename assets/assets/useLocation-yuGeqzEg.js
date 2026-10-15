@@ -1,0 +1,1 @@
+import{c as e,d as t,l as n}from"./preload-helper-ILokx1PP.js";function r(r){let i=t();return n(i.stores.location,e(r,i))}export{r as t};

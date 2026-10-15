@@ -1,0 +1,1 @@
+import{o as e}from"./preload-helper-ILokx1PP.js";var t=e(`/_app`);function n(){return t.useRouteContext({select:e=>e.accountId})}export{n as t};

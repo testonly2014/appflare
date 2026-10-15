@@ -1,0 +1,1 @@
+function e(e,t){let n=e=>[e?.activeInstalls??0,e?.installs30d??0,e?.stars??-1],r=n(e),i=n(t);for(let e=0;e<r.length;e+=1){let t=(i[e]??0)-(r[e]??0);if(t!==0)return t}return 0}function t(e){if(e<1e3)return String(e);if(e<1e6){let t=e/1e3;return`${t<10?Math.floor(t*10)/10:Math.floor(t)}k`}let t=e/1e6;return`${t<10?Math.floor(t*10)/10:Math.floor(t)}M`}export{t as n,e as t};

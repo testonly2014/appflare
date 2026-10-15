@@ -1,0 +1,90 @@
+{
+  // Appflare 0.5.0, generated from the release manager@0.5.0 of
+  // github.com/appflare/appflare. Every release replaces this repository's contents;
+  // do not edit it. Appflare updates itself from its own settings page.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // The button's form starts with this name and lets you change it. One Appflare per
+  // account: the Workflow below has a fixed name, and a second deploy would take it over.
+  "name": "appflare",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-09-21",
+  "compatibility_flags": [
+    "nodejs_compat",
+    "global_fetch_strictly_public"
+  ],
+  // The Worker is prebuilt: wrangler uploads the release's modules as they are.
+  "no_bundle": true,
+  "find_additional_modules": true,
+  "base_dir": "worker",
+  "rules": [
+    {
+      "type": "ESModule",
+      "globs": [
+        "index.js"
+      ]
+    }
+  ],
+  "workers_dev": true,
+  "preview_urls": true,
+  "keep_vars": true,
+  "send_metrics": false,
+  "observability": {
+    "enabled": true
+  },
+  // Created by the button before the first deploy. Appflare applies its own migrations
+  // on its first request, so the deploy command runs none.
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "appflare","database_id": "58aa08a1-a9e9-4aa8-b50d-c43c9cb07ab6"
+    }
+  ],
+  // Created by the button, named after the project.
+  "kv_namespaces": [
+    {
+      "binding": "KV","id": "1839dc42618b4c62bb99973d187b15c8"
+    }
+  ],
+  // Installs, updates, and uninstalls run as this Workflow.
+  //
+  // No SELF service binding here, unlike a manager installed with create-appflare. It
+  // would name this Worker, and a project renamed in the button's form keeps the old
+  // name in the binding, which fails the deploy. Appflare adds SELF by its real name
+  // at its first update; until then its jobs run every step in place.
+  "workflows": [
+    {
+      "binding": "JOBS",
+      "name": "appflare-jobs",
+      "class_name": "JobWorkflow"
+    }
+  ],
+  // The single-page app. Every request except the bundles under /assets/ reaches the Worker
+  // first, so the workers.dev address can send pages on to a custom domain.
+  "assets": {
+    "not_found_handling": "none",
+    "run_worker_first": [
+      "/"
+    ],
+    "_headers": "# The build names every file under /assets/ by a hash of its content, so a\n# browser may keep them for good. Everything else (the page itself, icons)\n# keeps the default: revalidated on every load.\n/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n",
+    "directory": "assets",
+    "binding": "ASSETS"
+  },
+  "triggers": {
+    "crons": [
+      "*/5 * * * *"
+    ]
+  },
+  // Lets the setup wizard check that the API token you paste is for the account this
+  // Worker runs in.
+  "version_metadata": {
+    "binding": "CF_VERSION_METADATA"
+  },
+  // APPFLARE_INSTALL_SOURCE tells Appflare it was deployed with the button, so it asks
+  // you to disconnect Workers Builds and delete your copy of this repository.
+  // No secrets are declared: the setup wizard generates BETTER_AUTH_SECRET and stores
+  // it, with your API token, as encrypted secrets on this Worker.
+  "vars": {
+    "APPFLARE_VERSION": "0.5.0",
+    "APPFLARE_INSTALL_SOURCE": "deploy-button"
+  }
+}

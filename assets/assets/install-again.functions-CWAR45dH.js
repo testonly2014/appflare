@@ -1,0 +1,1 @@
+import{_ as e,n as t}from"./preload-helper-ILokx1PP.js";var n=t({method:`GET`}).handler(e(`52d3fa5ccbe00c975cc7be1c6e4ee6817ff940e6a9c01aa2d0d59c5c3204428f`));export{n as t};

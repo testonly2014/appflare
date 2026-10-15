@@ -1,0 +1,1 @@
+import{_r as e}from"./text-f1wxz183ckq7qtl7-DR2rnJ_v.js";import{l as t}from"./settings-pages-B8KOtadB.js";import{c as n}from"./index-3yqkfHtQ.js";var r=e();function i(){let e=n.useLoaderData(),{viewer:i}=n.useRouteContext();return(0,r.jsx)(t,{...e,viewer:i})}export{i as component};

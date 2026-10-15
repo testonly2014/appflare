@@ -1,0 +1,1 @@
+var e={homeClick:!0};function t(e){return typeof e==`object`&&!!e&&e.homeClick===!0}function n(e,n){return e===0&&!t(n)?`catalog`:`home`}export{n,e as t};

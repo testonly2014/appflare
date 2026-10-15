@@ -1,0 +1,15 @@
+{
+  "name": "appflare",
+  "version": "0.5.0",
+  "private": true,
+  "description": "Deploy Appflare, a self-hosted app manager for Cloudflare, with the Deploy to Cloudflare button.",
+  "homepage": "https://github.com/appflare/appflare",
+  "license": "Apache-2.0",
+  "packageManager": "npm@10.9.2",
+  "scripts": {
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "4.136.2"
+  }
+}
